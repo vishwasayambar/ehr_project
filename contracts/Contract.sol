@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >= 0.4.21;
+pragma solidity >=0.4.21 < 0.9.0;
 
 import './Roles.sol';
 
@@ -36,7 +36,7 @@ contract Contract{
     address get_patient_id;
     address get_dr_id;
 
-    constructor() {
+    constructor(){
         admin_id = msg.sender;
         admin.add(admin_id);
     }
@@ -63,6 +63,16 @@ contract Contract{
         Dr_ids.push(msg.sender);
 
         doctor.add(dr_id);
+    }
+
+    function addPatInfo(address _pat_id,string memory _IPFSHash) public{
+        require(admin.has(msg.sender),'Only For Admin');
+
+        Patient storage patientInfo = Patients[msg.sender];
+        patientInfo.patHash = _IPFSHash;
+        Patient_ids.push(msg.sender);
+
+        doctor.add(_pat_id);
     }
 
     function getAllDrs() public view returns(address[] memory){
