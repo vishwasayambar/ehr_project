@@ -55,6 +55,12 @@ contract Contract{
         doctor.add(_newdr);
     }
 
+    //Add patient
+     function addPatient(address _newpat) public{
+        require(admin.has(msg.sender), 'Only For Admin'); 
+        patient.add(_newpat);
+    }
+
     function addDrInfo(address dr_id,string memory _drInfo_hash) public{
         require(admin.has(msg.sender),'Only For Admin');
 
@@ -65,11 +71,11 @@ contract Contract{
         doctor.add(dr_id);
     }
 
-    function addPatInfo(address _pat_id,string memory _IPFSHash) public{
-        require(admin.has(msg.sender),'Only For Admin');
-
+    function addPatInfo(address _pat_id,string memory _patIPFSHash) public{
+        // require(admin.has(msg.sender),'Only For Admin');
+        // debugger;
         Patient storage patientInfo = Patients[msg.sender];
-        patientInfo.patHash = _IPFSHash;
+        patientInfo.patHash = _patIPFSHash;
         Patient_ids.push(msg.sender);
 
         doctor.add(_pat_id);
@@ -81,6 +87,10 @@ contract Contract{
 
     function getDr(address _id) public view returns(string memory){
         return (Doctors[_id].drHash);
+    }
+
+    function getPatient(address _id) public view returns(string memory){
+        return (Patients[_id].patHash);
     }
 
    // check is Doctor

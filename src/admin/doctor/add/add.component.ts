@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
 import { NgxImageCompressService } from 'ngx-image-compress';
 import { DoctorService } from 'src/admin/services/doctor.service';
-
-// declare let window: any;
-// const { ethereum } = window;
 
 @Component({
   selector: 'doctor-add',
