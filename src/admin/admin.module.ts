@@ -18,6 +18,7 @@ import { PatientComponent } from './patient/patient.component';
 import { UtilsModule } from 'src/utils/utils.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ViewpatientComponent } from './patient/viewpatient/viewpatient.component';
+import { AddpatientComponent } from './patient/addpatient/addpatient.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ViewpatientComponent } from './patient/viewpatient/viewpatient.componen
     CardComponent,
     ReportsComponent,
     PatientComponent,
-    ViewpatientComponent
+    ViewpatientComponent,
+    AddpatientComponent
   ],
   imports: [CommonModule, AdminRoutingModule, FormsModule,UtilsModule,HttpClientModule],
   providers: [NgxImageCompressService],

@@ -1,0 +1,46 @@
+
+<div class="container-fluid">
+    <div class="container mb-4">
+      <form [noValidate]="false" class="mt-5" (ngSubmit)="onAddDocSubmit()" [formGroup]="form">
+        <div class="row form-row form-control ">
+          <div class="col-12">
+            <div class="form-group">
+
+              <label>Patient Id<sup class="fas fa-asterisk fw-normal text-danger" style="font-size: 8px;"></sup></label>
+              <input formControlName="patID" name="docID" id="accid" type="text" class="form-control"
+                placeholder="patient account id" required />
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label>Speciality<sup class="fas fa-asterisk fw-normal text-danger" style="font-size: 8px;"></sup></label>
+              <input formControlName="speciality" name="special" id="accid" type="text" class="form-control"
+                placeholder="Ex . Dermatologiest" required />
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label>Doctor Id<sup class="fas fa-asterisk fw-normal text-danger" style="font-size: 8px;"></sup></label>
+              <input formControlName="docID" name="docID" id="accid" type="text" class="form-control"
+                placeholder="doctor account id" required />
+            </div>
+          </div>
+          <div class="col-12 col-sm-12">
+              <label>Date<sup class="fas fa-asterisk fw-normal text-danger" style="font-size: 8px;"></sup></label>
+              <input formControlName="date" name="city" id="city" type="date" class="form-control" 
+                required />
+            <div class="col-12 col-sm-12">
+                <label>Time</label>
+                <input formControlName="tiem" name="state" id="state" type="time" class="form-control"
+                  placeholder="state" />
+            </div>
+          </div>
+        </div>
+        <button type="submit" id="btn" class="btn btn-primary mt-3">
+          Register Here</button>
+      </form>
+    </div>
+  </div>
+
+
+  

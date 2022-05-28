@@ -7,13 +7,16 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegPatientComponent } from './reg-patient/reg-patient.component';
+import { AddpatientComponent } from 'src/admin/patient/addpatient/addpatient.component';
+import { AppointmentComponent } from './appointment/appointment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     HomeComponent,
-    RegPatientComponent
+    RegPatientComponent,
+    AppointmentComponent
   ],
   imports: [
     BrowserModule,
