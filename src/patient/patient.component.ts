@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxImageCompressService } from 'ngx-image-compress';
-import { PatientService } from '../services/patient.service';
-import { ViewpatientComponent } from './viewpatient/viewpatient.component';
+import { PatientService } from '../admin/services/patient.service';
 
 @Component({
   selector: 'app-patient',
@@ -16,6 +15,8 @@ export class PatientComponent implements OnInit {
     phone: '123456789',
     city: 'city',
     state: 'state',
+    imageHash: ""
+
   };
 
   image_url: any;
@@ -46,6 +47,7 @@ export class PatientComponent implements OnInit {
 
     this.ipfs.addJSON(data).then((IPFShash: string) => {
       console.log(IPFShash);
+      console.log(this.model.patID)
       this.msg_text = 'Data added to IPFS...';
       //add data to blockchain
       this.patientService.contract.methods
