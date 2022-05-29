@@ -1,20 +1,6 @@
 # EHR 2.0
 
-## For Full working project 
-
--- Apponitments <br>
--- Pdf upload <br>
--- and much more. <br>
-
-Demo : [Youtube](https://youtu.be/d_-pWoGgdVs)
-<br>
-Setup : [Youtube](https://youtube.com/playlist?list=PL54V-i7zW55d1VKxEkp9DCPt5k_zE6m3X)
-
-contact : 
-
-
-🆁🅴🆀🆄🅸🆁🅴🅼🅴🅽🆃🆂
-
+REQUIREMENTS
 1.Install nodeJs
 
 * [Node JS](https://nodejs.org/en/download/)
@@ -46,12 +32,3 @@ contact :
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Live
-Live site hosted on firebase
- [Click here](https://ehr-2-0.web.app/)
-
-
-
-
-
