@@ -5,7 +5,7 @@ import { DoctorService } from 'src/admin/services/doctor.service';
 @Component({
   selector: 'doctor-add',
   templateUrl: './add.component.html',
-  styleUrls: ['./add.component.sass'],
+  styleUrls: ['./add.component.css'],
 })
 export class AddComponent implements OnInit {
   model: any = {

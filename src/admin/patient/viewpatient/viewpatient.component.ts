@@ -23,20 +23,20 @@ export class ViewpatientComponent implements OnInit {
   patient: string[] = [];
 
   Doctor: any = {
-    docID: '',
+  
     fName: 'First Name',
     lName: 'Last Name',
-    Doj: '',
-    emailID: 'test_name@mail.com',
     phone: '123456789',
     city: 'city',
     state: 'state',
-    speciality: 'speciality',
     imageHash: '',
+    imageHash1: '',
+    imageHash2: '',
+    imageHash3: '',
   };
 
   patientDetails: any = [];
-
+  show = false;
   loaded : boolean = false;
   loadComplete: boolean = false;
 
@@ -88,5 +88,13 @@ export class ViewpatientComponent implements OnInit {
       }
     })
 
+  }
+  onShow(){
+    if(this.show == true){
+      this.show = false;
+    }else{
+      this.show = true;
+    }
+    
   }
 }

@@ -1,11 +1,11 @@
 
-<div class="container-fluid">
-    <div class="container mb-4">
-      <form [noValidate]="false" #docForm="ngForm" (ngSubmit)="onSubmit()">
+<div class="container-fluid root ">
+    <div class="container mb-4 mt-5 ">
+      <form [noValidate]="false" #docForm="ngForm" class="mb-5 mt-5 pt-5 pb-5" (ngSubmit)="onSubmit()">
         <h3 class="h3 my-3">Add Patient to the Network</h3>
-        <div class="row form-row">
-          <div class="col-12 col-sm-6">
-            <div class="form-group">
+        <div class="row form-row mb-5 pb-5 mt-5">
+          <div class="col-12 col-sm-6 mb-2">
+            <div class="form-group ">
               <label>
                 First Name
                 <sup class="fas fa-asterisk fw-normal text-danger" style="font-size: 8px;"></sup>
@@ -14,7 +14,7 @@
                 placeholder="first name" required />
             </div>
           </div>
-          <div class="col-12 col-sm-6">
+          <div class="col-12 col-sm-6 mb-2">
             <div class="form-group">
               <label>Last Name<sup class="fas fa-asterisk fw-normal text-danger" style="font-size: 8px;"></sup></label>
               <input [(ngModel)]="model.lName" name="lName" id="lname" type="text" class="form-control"
@@ -22,7 +22,7 @@
             </div>
           </div>
   
-          <div class="col-12 col-sm-6">
+          <div class="col-12 col-sm-6 mb-2">
             <div class="form-group">
               <label>Mobile<sup class="fas fa-asterisk fw-normal text-danger" style="font-size: 8px;"></sup></label>
               <input [(ngModel)]="model.phone" name="phone" id="mob" type="text" class="form-control" placeholder="mobile"
@@ -30,31 +30,57 @@
             </div>
           </div>
   
-          <div class="col-12">
+          <div class="col-12 col-sm-6 mb-2">
             <div class="form-group">
               <label>Patient Id<sup class="fas fa-asterisk fw-normal text-danger" style="font-size: 8px;"></sup></label>
               <input [(ngModel)]="model.patID" name="docID" id="accid" type="text" class="form-control"
                 placeholder="patient account id" required />
             </div>
           </div>
-          <div class="col-12 col-sm-6">
+          <div class="col-12 col-sm-6 mb-2">
             <div class="form-group">
               <label>City<sup class="fas fa-asterisk fw-normal text-danger" style="font-size: 8px;"></sup></label>
               <input [(ngModel)]="model.city" name="city" id="city" type="text" class="form-control" placeholder="city"
                 required />
             </div>
           </div>
-          <div class="col-12 col-sm-6">
+          <div class="col-12 col-sm-6 mb-2">
             <div class="form-group">
               <label>State</label>
               <input [(ngModel)]="model.state" name="state" id="state" type="text" class="form-control"
                 placeholder="state" />
             </div>
           </div>
+          <div class="col-12 col-sm-6 mb-2">
+              <div class=" form-group">
+                <label class="form-label" for="formFile">Select Patient Report</label>
+                <input class="img-chooser form-control" type="file" id="formFile" (change)="PreviewImage($event)">
+              </div>
+          </div> 
+          <div class="col-12 col-sm-6 mb-2">
+              <div class=" form-group">
+                <label class="form-label" for="formFile">Select Patient DR.receipt</label>
+                <input class="img-chooser form-control" type="file" id="formFile" (change)="PreviewImage($event)">
+              </div>
+          </div> 
+          <div class="col-12 col-sm-6 mb-2">
+              <div class=" form-group">
+                <label class="form-label" for="formFile">Select X-ray Report</label>
+                <input class="img-chooser form-control" type="file" id="formFile" (change)="PreviewImage($event)">
+              </div>
+          </div> 
+          <div class="col-12 col-sm-6 mb-2">
+              <div class=" form-group">
+                <label class="form-label" for="formFile">Select MR-Report image</label>
+                <input class="img-chooser form-control" type="file" id="formFile" (change)="PreviewImage($event)">
+              </div>
+          </div> 
+          <div class="col-6">
+            <button type="submit" id="btn" class="btn btn-primary mb-3">
+              Add Patient
+            </button>
+          </div> 
         </div>
-        <button type="submit" id="btn" class="btn btn-primary mb-3">
-          Add Patient
-        </button>
       </form>
     </div>
     <!-- <app-progress_card [success]="success" [show]="show" [msg_text]="msg_text" [warn]="warn" (retry)="onSubmit()" (close)="onClose()"> -->

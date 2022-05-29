@@ -51,3 +51,18 @@
       width: 70%;
     }
   }
+
+  .root{
+    /* height: 100%; */
+    width: 100%;
+    background-image: url(../../assets/images/bg-2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.foo{
+  opacity: 0.5;
+	filter: alpha(opacity=60); /* For IE8 and earlier */
+  border:none;
+  outline:none;
+  }

@@ -3,24 +3,13 @@
     <div class="content" *ngIf="patientDetails.length >= 1">
       <div class="card mt-2" *ngFor="let patientdetails of patientDetails">
         <div class="doctor w-100 p-2 d-flex flex-row align-items-center">
-          <div class="doc-image">
-            <img
-              class="border border-1 border-secondary rounded-circle p-1"
-              [src]="
-                patientdetails.imageHash || '../../../assets/images/doctor.png'
-              "
-              alt="Doctor Image"
-              width="150px"
-              height="150px"
-            />
-          </div>
           <div class="doc-info d-flex flex-column">
             <div class="col">
               <div class="row py-2">
                 <div class="col-md-12">
-                  <b>DocID: </b>
+                  <b>Patient ID: </b>
                   <span class="docID">
-                    <b>{{ patientdetails.docID }}</b></span
+                    <b>{{ patientdetails.patID }}</b></span
                   >
                 </div>
               </div>
@@ -33,22 +22,8 @@
                       {{ patientdetails.lName }}</span
                     >
                   </div>
-                  <div>
-                    <b>Date of Joining : </b>
-                    <span class="Doj">{{ patientdetails.Doj }}</span>
-                  </div>
-                  <div>
-                    <b>Speciality: </b
-                    ><span class="speciality">{{
-                      patientdetails.speciality
-                    }}</span>
-                  </div>
                 </div>
                 <div class="col-md-12 d-flex flex-column">
-                  <div>
-                    <b>Email : </b
-                    ><span class="emailID">{{ patientdetails.emailID }}</span>
-                  </div>
                   <div>
                     <b>Phone: </b
                     ><span class="phone">{{ patientdetails.phone }}</span>
@@ -65,6 +40,15 @@
               </div>
             </div>
           </div>
+        </div>
+  <button class="btn btn-primary" (click)="onShow()"> Show Document</button>
+
+        <div *ngIf="show" class="doc-image">
+          <img
+            class="border "
+            [src]="
+              patientdetails.imageHash"
+          />
         </div>
       </div>
     </div>
@@ -90,6 +74,7 @@
   <!-- <app-progress_card [show]="!loaded" [warn]="showProgressWarn" [msg_text]="progressMsg"></app-progress_card> -->
 </div>
 
+
 <table class="table">
   <thead>
     <tr>
@@ -112,3 +97,4 @@
     </tr>
   </tbody>
 </table>
+
