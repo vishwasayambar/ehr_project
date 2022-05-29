@@ -1,11 +1,8 @@
 <div class="container-fluid">
   <div class="container">
-    <div class="h3">View Patient Record</div>
-    <form class="patient__id" #patForm="ngForm" (ngSubmit)="onPatIDSubmit()">
-      <input [(ngModel)]="model.patID" name="patID" #patID type="text" class="form-control"
-        placeholder="Patient ID (0x00000000000000000000000000000000000000000)">
-      <button type="submit" class="btn btn-primary">Consult</button>
-    </form>
+    <div class="border">
+      <div class="h3 m-4 text-danger">Pending Appointments List </div>
+    </div>
 
     <app-progress_card [show]="showProgress" [msg_text]="progressMsg" [success]="progressSuccess" [warn]="progressWarn"
       (close)="onProgressClose()"></app-progress_card>
@@ -37,3 +34,24 @@
 <app-record *ngIf="viewRecord"  [PatientRecord]="PatientRecord" (close)="onRecordClose()"></app-record>
 
 </div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Patient ID</th>
+      <th scope="col">Speciality</th>
+      <th scope="col">Doctor ID</th>
+      <th scope="col">Date</th>
+      <th scope="col">Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let appointment of appointmentsList">
+      <th scope="row">{{appointment.patID}}</th>
+      <th scope="row">{{appointment.speciality}}</th>
+      <th scope="row">{{appointment.docID}}</th>
+      <th scope="row">{{appointment.date}}</th>
+      <th scope="row">{{appointment.time}}</th>
+    </tr>
+  </tbody>
+</table>

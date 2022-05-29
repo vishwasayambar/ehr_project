@@ -73,7 +73,6 @@ contract Contract{
 
     function addPatInfo(address _pat_id,string memory _patIPFSHash) public{
         // require(admin.has(msg.sender),'Only For Admin');
-        // debugger;
         Patient storage patientInfo = Patients[msg.sender];
         patientInfo.patHash = _patIPFSHash;
         Patient_ids.push(msg.sender);

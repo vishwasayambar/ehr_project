@@ -5,7 +5,8 @@ import {
   OnInit,
 } from '@angular/core';
 
-import { PatientService } from 'src/admin/services/patient.service';
+import { PatientService as AdminPatientService} from 'src/admin/services/patient.service';
+import { PatientService } from 'src/services/patient.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { PatientService } from 'src/admin/services/patient.service';
   styleUrls: ['./viewpatient.component.sass']
 })
 export class ViewpatientComponent implements OnInit {
-
+  patientList: Array<any> = [];
   model: any = {
     acID: '',
   };
@@ -43,7 +44,7 @@ export class ViewpatientComponent implements OnInit {
   showProgressWarn:boolean = false;
   progressMsg:string = ''
 
-  constructor(private patientServices: PatientService)
+  constructor(private patientServices: AdminPatientService, private storagePatientService: PatientService)
    {
     this.progressMsg = 'Loading patient Accounts From Blockchain'
     this.patientDetails = patientServices.patientDetails
@@ -51,6 +52,7 @@ export class ViewpatientComponent implements OnInit {
 
   ngOnInit(): void {
    this.GetPatients()
+   this.patientList = this.storagePatientService.getPatient();
   }
 
   loadPatDetails() {

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PatientService } from 'src/services/patient.service';
 import { DoctorService } from '../services/doctor.service';
+import { AppointmentService } from 'src/services/appointment.service';
 
 @Component({
   selector: 'app-view-record',
@@ -7,6 +9,7 @@ import { DoctorService } from '../services/doctor.service';
   styleUrls: ['./view-record.component.sass'],
 })
 export class ViewRecordComponent implements OnInit {
+  appointmentsList: Array<any> = [];
   model: any = {};
   PatientRecords: any;
   record: boolean = false;
@@ -17,9 +20,10 @@ export class ViewRecordComponent implements OnInit {
   progressMsg: string = 'Loading....';
   progressWarn: boolean = false;
   progressSuccess: boolean = false;
-  viewRecord:boolean =false
+  viewRecord:boolean =false;
+  patients: any;
 
-  constructor(private doctorService: DoctorService) {}
+  constructor(private doctorService: DoctorService, private patientService: PatientService , private storageAppointmentService : AppointmentService ) {}
 
   ngOnInit(): void {
     //FIXME
@@ -27,6 +31,8 @@ export class ViewRecordComponent implements OnInit {
     // this.PatientRecords = JSON.parse(data!) || {}
     // console.log(this.PatientRecords);
     this.PatientRecords = {}
+    this.patients = this.patientService.getPatient();
+    this.appointmentsList = this.storageAppointmentService.getAppointmentPatient();
   }
 
   onPatIDSubmit() {

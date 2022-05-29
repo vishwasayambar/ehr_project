@@ -1,63 +1,114 @@
 <div class="container-fluid">
-    <div class="container w-100">
-      <div class="content" *ngIf="patientDetails.length >= 1">
-        <div class="card mt-2" *ngFor="let patientdetails of patientDetails">
-          <div class="doctor w-100 p-2 d-flex flex-row align-items-center">
-            <div class="doc-image">
-              <img class="border border-1 border-secondary rounded-circle p-1"
-                [src]='patientdetails.imageHash || "../../../assets/images/doctor.png"' alt="Doctor Image" width="150px"
-                height="150px">
-            </div>
-            <div class="doc-info d-flex flex-column">
-              <div class="col">
-                <div class="row py-2">
-                  <div class="col-md-12">
-                    <b>DocID: </b> <span class="docID"> <b>{{patientdetails.docID}}</b></span>
+  <div class="container w-100">
+    <div class="content" *ngIf="patientDetails.length >= 1">
+      <div class="card mt-2" *ngFor="let patientdetails of patientDetails">
+        <div class="doctor w-100 p-2 d-flex flex-row align-items-center">
+          <div class="doc-image">
+            <img
+              class="border border-1 border-secondary rounded-circle p-1"
+              [src]="
+                patientdetails.imageHash || '../../../assets/images/doctor.png'
+              "
+              alt="Doctor Image"
+              width="150px"
+              height="150px"
+            />
+          </div>
+          <div class="doc-info d-flex flex-column">
+            <div class="col">
+              <div class="row py-2">
+                <div class="col-md-12">
+                  <b>DocID: </b>
+                  <span class="docID">
+                    <b>{{ patientdetails.docID }}</b></span
+                  >
+                </div>
+              </div>
+              <div class="row-md-12 d-flex flex-row justify-content-between">
+                <div class="col-md-12 d-flex flex-column">
+                  <div>
+                    <b>Full Name : </b>
+                    <span class="fName"
+                      >{{ patientdetails.fName }}
+                      {{ patientdetails.lName }}</span
+                    >
+                  </div>
+                  <div>
+                    <b>Date of Joining : </b>
+                    <span class="Doj">{{ patientdetails.Doj }}</span>
+                  </div>
+                  <div>
+                    <b>Speciality: </b
+                    ><span class="speciality">{{
+                      patientdetails.speciality
+                    }}</span>
                   </div>
                 </div>
-                <div class="row-md-12 d-flex flex-row justify-content-between">
-                  <div class="col-md-12 d-flex flex-column">
-                    <div>
-                      <b>Full Name : </b> <span class="fName">{{patientdetails.fName}} {{patientdetails.lName}}</span></div>
-                    <div>
-                      <b>Date of Joining : </b> <span class="Doj">{{patientdetails.Doj}}</span>
-                    </div>
-                    <div>
-                      <b>Speciality: </b><span class="speciality">{{patientdetails.speciality}}</span>
-                    </div>
-  
+                <div class="col-md-12 d-flex flex-column">
+                  <div>
+                    <b>Email : </b
+                    ><span class="emailID">{{ patientdetails.emailID }}</span>
                   </div>
-                  <div class="col-md-12 d-flex flex-column">
-                    <div>
-                      <b>Email : </b><span class="emailID">{{patientdetails.emailID}}</span></div>
-                    <div>
-                      <b>Phone: </b><span class="phone">{{patientdetails.phone}}</span>
-                    </div>
-                    <div>
-                      <b>City </b><span class="city">{{patientdetails.city}}</span>
-                    </div>
-                    <div>
-                      <b>State: </b><span class="state">{{patientdetails.state}}</span>
-                    </div>
+                  <div>
+                    <b>Phone: </b
+                    ><span class="phone">{{ patientdetails.phone }}</span>
+                  </div>
+                  <div>
+                    <b>City </b
+                    ><span class="city">{{ patientdetails.city }}</span>
+                  </div>
+                  <div>
+                    <b>State: </b
+                    ><span class="state">{{ patientdetails.state }}</span>
                   </div>
                 </div>
-  
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div *ngIf="showProgressCard" class="prgrs mt-3 d-flex flex-column align-items-center">
-        <label for="progress">{{progressMsg}}</label>
-        <progress id="progress"></progress>
-      </div>
-  
-      <div class="nill d-flex flex-column justify-content-center align-items-center text-center" *ngIf="loadComplete && !loaded">
-        No Doctors In the Network Add Doctors using the above tab<span class="text-primary fw-bold">Add Doctor</span>
-        <button class="btn btn-primary" (click)="GetPatients()">Retry</button>
-      </div>
-  
     </div>
-    <!-- <app-progress_card [show]="!loaded" [warn]="showProgressWarn" [msg_text]="progressMsg"></app-progress_card> -->
+    <div
+      *ngIf="showProgressCard"
+      class="prgrs mt-3 d-flex flex-column align-items-center"
+    >
+      <label for="progress">{{ progressMsg }}</label>
+      <progress id="progress"></progress>
+    </div>
+
+    <div
+      class="nill d-flex flex-column justify-content-center align-items-center text-center"
+      *ngIf="loadComplete && !loaded"
+    >
+      No Doctors In the Network Add Doctors using the above tab<span
+        class="text-primary fw-bold"
+        >Add Doctor</span
+      >
+      <button class="btn btn-primary" (click)="GetPatients()">Retry</button>
+    </div>
   </div>
-  
+  <!-- <app-progress_card [show]="!loaded" [warn]="showProgressWarn" [msg_text]="progressMsg"></app-progress_card> -->
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Patient ID</th>
+      <th scope="col">City</th>
+      <th scope="col">State</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let patient of patientList">
+      <th>{{patient.firstName}}</th>
+      <td>{{patient.lastName}}</td>
+      <td>{{patient.phone}}</td>
+      <td>{{patient.patID}} </td>
+      <td>{{patient.city}} </td>
+      <td>{{patient.state}} </td>
+    </tr>
+  </tbody>
+</table>

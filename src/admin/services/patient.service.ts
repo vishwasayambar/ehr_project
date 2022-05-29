@@ -89,7 +89,6 @@ export class PatientService {
     this.contract = this.blockChainService.getContract()
 
     this.ipfs.addJSON(data).then((IPFSHash: any) => {
-      debugger;
       console.log("IPFS hash : ",IPFSHash);
       this.contract.methods
         .addPatInfo(pat_id, IPFSHash)

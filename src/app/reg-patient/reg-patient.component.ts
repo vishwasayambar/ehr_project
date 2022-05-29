@@ -5,10 +5,11 @@ import { PatientService } from 'src/services/patient.service';
 @Component({
   selector: 'app-reg-patient',
   templateUrl: './reg-patient.component.html',
-  styleUrls: ['./reg-patient.component.sass']
+  styleUrls: ['./reg-patient.component.css']
 })
 export class RegPatientComponent implements OnInit {
   form: FormGroup;
+  popup = false
   constructor(private fb: FormBuilder, private patientService: PatientService) {
     this.form = this.fb.group({
       patID: new FormControl(''),
@@ -20,7 +21,6 @@ export class RegPatientComponent implements OnInit {
 
     });
 
-
    }
 
   ngOnInit(): void {
@@ -29,5 +29,7 @@ export class RegPatientComponent implements OnInit {
   onAddDocSubmit() {
     const data = this.form.value;
     this.patientService.addPatient(data);
+   this.popup = true;
   }
 }
+
